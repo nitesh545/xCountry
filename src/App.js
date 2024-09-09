@@ -7,9 +7,10 @@ import { Grid2 } from '@mui/material';
 function App() {
   const [flags, setFlags] = useState([]);
   const fetchFlags = () => {
-    axios.get("https://xcountries-backend.azurewebsites.net/all")
-      .then((res) => setFlags(res.data))
-      .catch((err) => console.log(`Error fetching data: ${err}`))
+    fetch("https://xcountries-backend.azurewebsites.net/all")
+      .then((res) => res.json())
+      .then((data) => setFlags(data))
+      .catch((error) => console.log(`Error fetching data: ${error}`))
   }
   useEffect(() => { fetchFlags(); }, []);
   return (
@@ -21,7 +22,7 @@ function App() {
           flags.map((flag) => {
             return (
               <Grid2 key={crypto.randomUUID()} size={2} sx={{ mt: 1, p: 1 }}>
-                <img src={flag.flag} alt={flag.name}></img>
+                <img src={flag.flag} alt={flag.abbr}></img>
                 <h4>{flag.name}</h4>
               </Grid2>
             );
