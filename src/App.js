@@ -12,7 +12,7 @@ export default function App() {
     fetch("https://xcountries-backend.azurewebsites.net/all")
       .then((res) => res.json())
       .then((data) => setFlags(data))
-      .catch((error) => console.error("Error fetching data: ", error))
+      .catch((error) => console.error("Error fetching data:", error))
     // try {
     //   fetch("https://xcountries-backend.azurewebsites.net/all")
     //     .then((res) => res.json())
