@@ -18,7 +18,7 @@ export default function App() {
         .then((res) => res.json())
         .then((data) => setFlags(data));
     }
-    catch (error) { console.log("Error fetching data:", error) }
+    catch (error) { console.error("Error fetching data:", error) }
   }, []);
   return (
     <div className="App">
