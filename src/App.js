@@ -10,8 +10,9 @@ function App() {
     try {
       let res = await axios.get("https://xcountries-backend.azurewebsites.net/all");
       setFlags(res.data);
+      console.log(res.data);
     }
-    catch (err) { console.log(err); }
+    catch (err) { console.log(`Error fetching data: ${err}`); }
   }
   useEffect(() => { fetchFlags(); }, []);
   return (
