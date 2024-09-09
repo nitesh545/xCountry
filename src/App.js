@@ -6,13 +6,10 @@ import { Grid2 } from '@mui/material';
 
 function App() {
   const [flags, setFlags] = useState([]);
-  const fetchFlags = async () => {
-    try {
-      let res = await axios.get("https://xcountries-backend.azurewebsites.net/all");
-      setFlags(res.data);
-      console.log(res.data);
-    }
-    catch (err) { console.log(`Error fetching data: ${err}`); }
+  const fetchFlags = () => {
+    axios.get("https://xcountries-backend.azurewebsites.net/all")
+      .then((res) => setFlags(res.data))
+      .catch((err) => console.log(`Error fetching data: ${err}`))
   }
   useEffect(() => { fetchFlags(); }, []);
   return (
