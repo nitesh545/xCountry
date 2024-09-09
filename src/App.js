@@ -10,7 +10,7 @@ function App() {
     fetch("https://xcountries-backend.azurewebsites.net/all")
       .then((res) => res.json())
       .then((data) => setFlags(data))
-      .catch((error) => console.log(`Error fetching data: ${error}`))
+      .catch((error) => console.log("Error fetching data:", error))
   }
   useEffect(() => { fetchFlags(); }, []);
   return (
